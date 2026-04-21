@@ -1,0 +1,216 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * QUANTUM DERIVATIVES LAB — Bloomberg Terminal-inspired design system
+ * Deep navy/black canvas, amber primary, cyan accent, mono numerics.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-bull: var(--bull);
+  --color-bear: var(--bear);
+  --color-amber: var(--amber);
+  --color-cyan: var(--cyan);
+  --color-magenta: var(--magenta);
+  --color-grid: var(--grid);
+  --color-panel: var(--panel);
+  --color-panel-elevated: var(--panel-elevated);
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.375rem;
+
+  /* Terminal canvas */
+  --background: oklch(0.16 0.018 250);
+  --foreground: oklch(0.96 0.01 90);
+
+  --panel: oklch(0.20 0.020 250);
+  --panel-elevated: oklch(0.235 0.022 250);
+
+  --card: oklch(0.20 0.020 250);
+  --card-foreground: oklch(0.96 0.01 90);
+  --popover: oklch(0.20 0.020 250);
+  --popover-foreground: oklch(0.96 0.01 90);
+
+  /* Bloomberg amber */
+  --primary: oklch(0.78 0.16 75);
+  --primary-foreground: oklch(0.16 0.018 250);
+
+  --secondary: oklch(0.27 0.025 250);
+  --secondary-foreground: oklch(0.96 0.01 90);
+
+  --muted: oklch(0.25 0.022 250);
+  --muted-foreground: oklch(0.68 0.02 250);
+
+  --accent: oklch(0.72 0.15 220);
+  --accent-foreground: oklch(0.16 0.018 250);
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.30 0.025 250);
+  --input: oklch(0.27 0.025 250);
+  --ring: oklch(0.78 0.16 75);
+
+  /* Market signal palette */
+  --bull: oklch(0.74 0.18 145);   /* gain green */
+  --bear: oklch(0.65 0.24 25);    /* loss red */
+  --amber: oklch(0.78 0.16 75);   /* primary amber */
+  --cyan: oklch(0.78 0.13 215);   /* data cyan */
+  --magenta: oklch(0.70 0.20 325);
+  --grid: oklch(0.30 0.025 250 / 0.5);
+
+  /* Gradients & shadows */
+  --gradient-amber: linear-gradient(135deg, oklch(0.78 0.16 75), oklch(0.70 0.18 55));
+  --gradient-cyan: linear-gradient(135deg, oklch(0.78 0.13 215), oklch(0.65 0.16 235));
+  --gradient-panel: linear-gradient(180deg, oklch(0.22 0.020 250), oklch(0.18 0.018 250));
+  --glow-amber: 0 0 24px oklch(0.78 0.16 75 / 0.35);
+  --glow-cyan: 0 0 24px oklch(0.78 0.13 215 / 0.35);
+  --shadow-panel: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 8px 24px -12px oklch(0 0 0 / 0.6);
+}
+
+.dark {
+  --background: oklch(0.16 0.018 250);
+  --foreground: oklch(0.96 0.01 90);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.78 0.16 75 / 0.06), transparent 60%),
+      linear-gradient(180deg, oklch(0.17 0.018 250), oklch(0.15 0.018 250));
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Mono numerics everywhere */
+  .num, .tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: oklch(0.18 0.018 250); }
+  ::-webkit-scrollbar-thumb { background: oklch(0.32 0.025 250); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: oklch(0.40 0.028 250); }
+}
+
+@layer components {
+  .panel {
+    background: var(--gradient-panel);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    border-bottom: 1px solid var(--color-border);
+    background: oklch(0.18 0.018 250);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted-foreground);
+    font-weight: 600;
+  }
+
+  .panel-header::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 8px var(--color-primary);
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted-foreground);
+    font-weight: 500;
+  }
+
+  .stat-value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .ticker-strip {
+    background: oklch(0.13 0.018 250);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .glow-amber { box-shadow: var(--glow-amber); }
+  .glow-cyan { box-shadow: var(--glow-cyan); }
+
+  .pulse-dot {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--color-primary); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+  }
+
+  .text-bull { color: var(--color-bull); }
+  .text-bear { color: var(--color-bear); }
+  .text-amber { color: var(--color-amber); }
+  .text-cyan { color: var(--color-cyan); }
+}
