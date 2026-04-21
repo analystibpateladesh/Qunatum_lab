@@ -29,7 +29,7 @@ export interface BatchPricesResponse {
 
 const TWELVEDATA_API_KEY =
   (import.meta.env.VITE_TWELVEDATA_API_KEY as string | undefined) ??
-  "188b79432df4458da7352704020c32fa";
+  "Add_your_twelvedata_api_here";
 
 const PRICE_CACHE_TTL_MS = 5 * 60 * 100; // 5 minutes
 const priceCache = new Map<string, { expiresAt: number; data: PricesResponse }>();
