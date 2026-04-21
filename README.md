@@ -24,13 +24,13 @@ A browser-based quant research terminal for pricing options, exploring volatilit
 
 ```bash
 # 1. Install
-bun install        # or npm install / pnpm install
+npm  install        # or npm install / pnpm install
 
 # 2. Set your Twelve Data API key (free: https://twelvedata.com/register)
-echo "VITE_TWELVEDATA_API_KEY=your_key_here" > .env
+echo "TWELVEDATA_API_KEY=your_key_here" > twelvedata.ts
 
 # 3. Run
-bun run dev        # http://localhost:5173
+npm  run dev        # http://localhost:5173
 ```
 
 A demo key is hardcoded as a fallback so the app works out-of-the-box, but you should set your own for production (free tier: 800 req/day, 8 req/min).
@@ -108,11 +108,8 @@ On **Netlify**: Site settings → Environment variables → add `VITE_TWELVEDATA
 ## 📜 Scripts
 
 ```bash
-bun run dev         # Start dev server
-bun run build       # Production build
-bun run preview     # Preview production build
-bun run lint        # ESLint
-bun run format      # Prettier
+npm  run dev         # Start dev server
+npm  run build       # Production build
 ```
 ## ⚠️ Disclaimer
 This project is for **educational and research purposes only**. Pricing models, risk metrics, and market data are provided as-is with no warranty. Do not use as the sole basis for trading decisions.
