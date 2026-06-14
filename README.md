@@ -6,7 +6,7 @@ A browser-based quant research terminal for pricing options, exploring volatilit
 
 ---
 
-## ✨ Features
+##  Features
 
 | Route | Description |
 |-------|-------------|
@@ -37,7 +37,7 @@ A demo key is hardcoded as a fallback so the app works out-of-the-box, but you s
 
 ---
 
-## 🧮 Pricing Models
+##  Pricing Models
 
 All pricers are pure TypeScript — no backend required.
 
@@ -51,7 +51,7 @@ See [`src/lib/quant.ts`](src/lib/quant.ts) and [`src/lib/stats.ts`](src/lib/stat
 
 ---
 
-## 📊 Live Market Data
+##  Live Market Data
 
 Powered by **[Twelve Data](https://twelvedata.com)** — one API for stocks, ETFs, FX, and crypto, with proper CORS for direct browser calls.
 
@@ -66,7 +66,7 @@ Symbols are auto-resolved (e.g. `BTCUSD` → `BTC/USD`). Responses are cached fo
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Framework:** TanStack Start v1 (React 19 + Vite 7)
 - **Routing:** File-based via `src/routes/`
@@ -77,7 +77,7 @@ Symbols are auto-resolved (e.g. `BTCUSD` → `BTC/USD`). Responses are cached fo
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -97,7 +97,7 @@ src/
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -105,14 +105,14 @@ src/
 
 On **Netlify**: Site settings → Environment variables → add `VITE_TWELVEDATA_API_KEY`.
 ---
-## 📜 Scripts
+##  Scripts
 
 ```bash
 npm  run dev         # Start dev server
 npm  run build       # Production build
 ```
-## ⚠️ Disclaimer
+## Disclaimer
 This project is for **educational and research purposes only**. Pricing models, risk metrics, and market data are provided as-is with no warranty. Do not use as the sole basis for trading decisions.
 ---
-## 📄 License
+##  License
 MIT
